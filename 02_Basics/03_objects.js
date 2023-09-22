@@ -30,6 +30,7 @@ let obj2 = {
 
 console.log(obj2["mySym"]); 
 console.log(obj2[mySym]); // Right Way
+console.log(obj2);
 
 // Right way will help you in interview question.
 
@@ -39,6 +40,20 @@ console.log(myObject);
 
 //if you want to not change or update object in future you can feeze the object
 
-Object.freeze(myObject);
+// Object.freeze(myObject)
 myObject.name = "Atharv" // this change won't apply
 console.log(myObject);// this is giving name as Gayatri only
+
+//giving functions in object
+myObject.greeting = function(){
+    console.log("Hello There, Welcome :)");
+}
+
+myObject.greeting(); // running it as a function using ()
+console.log(myObject.greeting); // this will give reference of that function only. [Function (anonymous)]
+
+myObject.greeting2 = function(){
+    console.log(`Hello ji, ${this.name}!`); // we use this as we want to use name from the same object this refers to same object
+}
+
+myObject.greeting2();
