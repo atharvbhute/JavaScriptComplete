@@ -36,9 +36,9 @@ function login(username){
     return username;
 }
 
-getUser("6656") // this won't get execute as we have store this function in variable and vatiable. this way it's not accessible. 
+getUser("6656") // this won't get execute as we have store this function in variable and variable. this way it's not accessible. 
 
-let getUser = function(userId){
+let getUser = function(userId){ // this variable also called expression.
     return userId;
 }
 
