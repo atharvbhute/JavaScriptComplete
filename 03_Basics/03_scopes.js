@@ -28,7 +28,7 @@ function one(){
 
 one();
 
-///++++++++++++++++++++++++++++ interesting +++++++++++++++++++++++++++++++
+///++++++++++++++++++++++++++++ interesting / Hoisting +++++++++++++++++++++++++++++++
 
 login("atharv123"); // this wil get execute though it is before function declaration
 
