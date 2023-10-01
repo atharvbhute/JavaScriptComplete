@@ -16,7 +16,7 @@ let {id: empID} = empData; // here now we have renamed it and can use it as a em
 console.log(id);
 
 //using object de-structure in react for example 
-// const navbar = ({company}) = {
+// const navbar = ({company}) => {
 
 // }
 // navbar(company = "credence");
@@ -28,7 +28,7 @@ console.log(id);
 //     "name" : "Atharv",
 //     "contact" : "9922745939",
 //     "isLoggedIn" : true
-// } // this a syntax for API
+// } // this a syntax for API It is JSON File
 
 // now you know object so you can easily use api and json to convert data in object and easily represent it
 // You can get API's in Array format which contains objects
