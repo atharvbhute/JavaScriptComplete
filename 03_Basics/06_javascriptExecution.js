@@ -43,4 +43,35 @@ addNum nothing to execute or assign as it is already assigned in defination
 result1 - New Execution Context and diffrent whole new Box with (new variable environment + execution thread)
     now execution of function will happen here and everytime we assign function everytime there will be new box
     step 1 - Memeory Allocation
+    val1 - undefined
+    val2 - undefined
+    totla - undefined
+
+    Step 2 - Execution
+    num1 - val1(10);
+    num2 - val2(5);
+    Total = 15; // this is a return value of the function and it is going to global context. means this value will return to result1
+
+    //Imp Note* - This functional execution context get's delete after it's execution
+result2 - Again new execution context (new variable environment + execution thread)
+    It will be the same process as above. and after it returns result it get's deleted.
+*/
+
+// ++++++++++++++++ Call Stack +++++++++++++++++++++++
+
+/*
+There is something known as call stack
+Step 1 : Global executional context get's there
+Step 2 : Functions executes there and get's out of it as the execution is over
+    let's say we have 2 functions one after one which needs to be execute
+
+    so first one() will go and come out after execution 
+    then two() will go and get's execute and comes out 
+
+    // global execution is still there bcoz it's executing continously 
+
+    // what if we have one function inside another like eg one(){two(){three()}}
+    Then one() will go first then two() will go in and then three() will go in stack()
+    after execution it will come out in LIFO manner which is last in first out.
+
 */
