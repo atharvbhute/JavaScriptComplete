@@ -44,3 +44,5 @@ for (let i = 0; i < 10; i++) {
     }
     console.log(i); 
 }
+
+// note* in every loop working is same initialization, checking condition, increamenting the value, terminating loop if condition is flase.
