@@ -1,6 +1,7 @@
 // array specific loops
 
 // ++++++++++++++++++++++++++++++++++ for of +++++++++++++++++++++++++++++
+// simply this for...of loop gives you values
 
 let arr = [1,2,3,4,5,6,8]
 
