@@ -18,6 +18,7 @@ myArr.forEach((item) => {
 function callback(itme){
     console.log(itme);
 }
+// not -------- *** Foreach loop only executes function it DOESN'T RETURN ANYTHING It returns undefined
 
 myArr.forEach(callback); // just given the reference of function not whole function 
 

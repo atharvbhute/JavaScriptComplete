@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <h1 id="title" class="heading">Dom Learning</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+</body>
+<script>
+
+    console.log(window); // in browser this will give a object holding whole browsers current window's every information 
+    // like location, events, everything almost
+    // however this won't work in node environment
+
+    console.log(window.document); // this will give you whole html page
+    // now everytime you don't need to use this window.document you can use only document
+
+    console.log(document.baseURI); // to get URL of the page like these there are lot of methods are in this document Object
+
+    // Selectin elements by ID and Class // this works in browser
+
+    document.getElementById('title') // this will return a that perticuler element <h1 id="title" class="heading">Dom Learning</h1>
+    document.getElementById('title').id // will get ID
+    document.getElementById('title').class // now it won't work 
+    document.getElementById('title').className // this will work as document knows class by className mostly everyWhere we will use it as a class name
+    //eg react, or making a dom structure
+
+    document.getElementById('title').getAttribute('class') // this gives a name of the attribute like key and value
+    document.getElementById('title').setAttribute('class', 'new-Heading') // setAttribute can add attribure or update or overwrite the attribute 
+    // or you can give both values in attribure (class, 'new-heading heading ')
+
+    // styling the selected 
+    let title = document.getElementById('title'); // storing element in one variable
+    title.style.backgroundColor = "red";
+    title.style.borderRadius = "15px"; // the only rule is camel case and you can get any css property
+
+</script>
+    <!-- 
+        Now we will see how this document forms 
+        window -> Document -> HTML -> (Head, Body)
+                                       Head -> Title (-> Text Node), Meta (-> only one attribute (class="bg-black"))
+                                       Body -> Div (attribure, -> (H1, H2))
+                                       -> H1 (attribute, -> text node), P -> text node 
+
+
+        the above is a simple node or tree structure and gives an idea as how to get to the perticular element 
+        may be with following node structure of sometime by chosing attributes                            
+     -->
+</html>
