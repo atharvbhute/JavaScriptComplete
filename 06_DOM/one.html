@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+
+    <div class="parrent">
+        <div class="days">Monday</div>
+        <div class="days">Tuesday</div>
+        <div class="days">Wednesday</div>
+        <div class="days">Thursday</div>
+        <div class="days">Friday</div>
+        <div class="days">Saturday</div>
+    </div>
+</body>
+<script>
+    let parrent = document.querySelector(".parrent");
+    console.log(parrent.children); // .children property will give HTML Collection of all children of that div
+    console.log(parrent.firstElementChild); // will give you first child div
+    console.log(parrent.lastElementChild); // will give you last child div
+    console.log(parrent.children[2]) // gives 3rd child
+
+    console.log(parrent.childNodes); // gives list of nodes
+
+    // now everything including linebreaks is a nodelist
+    // comments are also get's count in nodes
+
+
+    // let's try to run loop without converting it to array
+    // for loop runs on array like structure
+
+    // for (let index = 0; index < parrent.children.length; index++) {
+    //     if (parrent.children[index].innerHTML == "Thursday") {
+    //         parrent.children[index].innerText = "Holiday";    
+    //         parrent.children[index].style.color = "red";
+    //     }
+    //     console.log(parrent.children[index].innerHTML);       
+    // }
+
+    // getting all parrent node through child
+    let firstChild = document.querySelector('.days');
+    console.log(firstChild.parentElement); // .parentElement get's you parent node
+    // getting next element to it
+    console.log(firstChild.nextElementSibling.nextElementSibling); // can chain
+</script>
+</html>

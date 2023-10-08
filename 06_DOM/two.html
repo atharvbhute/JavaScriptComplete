@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black;">
+    
+</body>
+<script>
+    // creating new div / element
+    const div = document.createElement('div');
+    console.log(div);
+    //giving attributes/class/id to div
+    div.className = "heading";
+    div.id = "title";
+    div.setAttribute('label', 'headline'); // people prefer this 1*
+    div.style.backgroundColor = "pink";
+    div.style.padding = "20px";
+    // div.innerHTML = "Daily Bugel News"; // alternative at line 31,32
+    div.style.borderRadius = "15px"
+
+    /* 1*
+    in div.innerHTML or innerText get's that element and rewrite that but
+    div.setAttribute set's the attribute directly to div it's single trip to div
+    however div.innerText ot div.id get's that id here and change that's double trip
+
+    So to avoid that we can do one more thing 
+    */
+    const innerText = document.createTextNode("Daily Bugel News");
+    div.appendChild(innerText);
+
+    // attatching this node to to nodelist to Dom Element
+    document.body.appendChild(div);
+</script>
+</html>
