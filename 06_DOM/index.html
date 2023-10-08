@@ -13,8 +13,15 @@
     </style>
 </head>
 <body class="bg-black">
-    <h1 id="title" class="heading">Dom Learning</h1>
+    <h1 id="title" class="heading">Dom Learning <span style="display: none;">with hidden content</span></h1>
+    <h2>another heading</h2>
+    <h2>another heading</h2>
     <p>Lorem ipsum dolor sit amet.</p>
+    <ul>
+        <li class="list-items">first</li>
+        <li class="list-items">second</li>
+        <li class="list-items">third</li>
+    </ul>
 </body>
 <script>
 
@@ -41,9 +48,59 @@
 
     // styling the selected 
     let title = document.getElementById('title'); // storing element in one variable
-    title.style.backgroundColor = "red";
+    title.style.backgroundColor = "yellow";
     title.style.borderRadius = "15px"; // the only rule is camel case and you can get any css property
+    title.style.padding = "20px"
+    title.style.color = "black"
 
+    // To get content from tag or element
+    //textContent // innerHTML // innerText
+    title.innerHTML // Dom Learning
+    // innerHTML gives you content or tags which are there inside that element
+    title.innerText // Dom Learning
+    // innerText gives you content that is visible in DOM
+    title.textContent // Dom Learning // 'Dom Learning with hidden content
+    //textContent also gives you content that is hidden by css properties gives every text
+
+    //querySelector('any css selector') // gives you only first element --------------------->
+    document.querySelector('#title'); 
+    document.querySelector('h2'); // will give only first h2 doesn't matter how much we have
+    //selecting ul and first li from ul
+    let ul = document.querySelector('ul'); // getting all ul
+    let firstLi = ul.querySelector('li'); // getting first li of selected ul
+
+    //-------------querySelectorAll--------------------------------------------
+    // note* - query selector all always gives you node list even if there is only one element
+
+    let myLis = document.querySelectorAll('li'); // gives li in nodeList form 
+    //nodelist is slightly diffrent than arrays however it gives some functionalties of array
+    myLis[0].style.color = "pink"; // this is how you give it index number 
+    // even if it's a first item you need to give index [0];
+    // apply it to all nodes use forEach it gives, nodeList gives forEach
+
+    myLis.forEach((item)=>{
+        item.style.color = "pink";
+    })
+
+    //---------------getElementByClassNAme------------------------------
+    let myLiList = document.getElementsByClassName('list-items'); // it gives HTML Collection Diffrent from Node List
+    myLiList[0].style.color = "red"; // it works lil like array but doesn't give us looping options
+    // for looping and applying it to all li conver it to array
+    const arrayOfLi = Array.from(myLiList); // now it has every propery of array
+    arrayOfLi.forEach((items) => {
+        if (items.innerText == "second") {
+            items.style.color = "white";
+        }else{
+            items.style.color = "pink";
+        }
+    })
+
+    // testing with single tag with unique class name
+    let myh1 = document.getElementsByClassName('bg-black');
+    myh1[0].style.color = "white"; // yes we need to give it index bcoz it always returns HTML collection
+
+
+    
 </script>
     <!-- 
         Now we will see how this document forms 
