@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+        <ol class="list">
+            <li>Tada</li>
+        </ol>
+</body>
+<script>
+    //appendChild() is always better that .innerHTML as innerHTML needs to traverse all node tree to get to that element
+    // appendChild directly appends the element.
+
+
+    const createListItem = (listItem) => {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(listItem));
+        document.querySelector('.list').appendChild(li);
+    }
+
+    createListItem('JavaScript');
+    createListItem('Learn Python');
+
+    //Note* never use function name as variable name in same function, function simply refuse to work
+
+    // Editing Elements
+    const editListItem = (itemNumber, listReplace) => {
+        const itemToReplace = document.querySelector('.list').children[itemNumber - 1]; // selecting Element to replace
+        // const newli = document.createElement('li')
+        // newli.appendChild(document.createTextNode(listReplace)); // creating new element
+
+        // itemToReplace.replaceWith(newli); // replace with to replace that element with another
+        
+        // another Method
+        itemToReplace.outerHTML = `<li>${listReplace}</li>`;
+    }
+
+    editListItem(1,"Go Lang");
+
+    // removing element
+    const removeElement = (itemToRemove) => {
+        const item = document.querySelector('.list').children[itemToRemove - 1];
+        item.remove();
+    }
+
+    removeElement(3);
+
+</script>
+</html>
