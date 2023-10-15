@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,th,td{
+            border: 1px solid black;
+            text-align  : center;
+        }
+        #table{
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="table">
+
+    </div>
+</body>
+<script>    
+const table = document.getElementById('table');
+window.addEventListener('keydown',(e)=>{
+    table.innerHTML = `
+    <table>
+  <tr>
+    <th>Key</th>
+    <th>code</th>
+    <th>Keycode</th>
+  </tr>
+  <tr>
+    <td>${e.key}</td>
+    <td>${e.code}</td>
+    <td>${e.keyCode}</td>
+  </tr>
+</table>
+    `
+})
+</script>
+</html>

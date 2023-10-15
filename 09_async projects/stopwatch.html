@@ -52,6 +52,7 @@
         clearInterval(timer);
         pause.setAttribute('disabled','');
         start.removeAttribute('disabled');
+        timer = null; // to remove setInterval from memory and saver memory after use;
     }
 
     function resetWatch(){
@@ -62,7 +63,7 @@
         displayCount();
         start.removeAttribute('disabled');
         pause.removeAttribute('disabled');
-
+        timer = null; // to remove setInterval from memory and saver memory after use;
     }
 
     start.addEventListener('click',startWatch);

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+
+    function randomColor(){
+        const hex = '0123456789ABCDEF';
+        let color = '#';
+        for(let i = 0 ; i < 6 ; i++){
+            color += hex[Math.floor(Math.random()*16)];
+        }
+        return color;
+    }
+
+    let colorChanger;
+    const start = document.getElementById('start');
+    const stop = document.getElementById('stop');
+
+    start.addEventListener('click',()=>{
+        if (!colorChanger) {
+            colorChanger = setInterval(()=>{
+                document.querySelector('body').style.backgroundColor = randomColor();
+            },1000); // setting colorChanger = interval only if colorChanger = null // just a extra profesional and future error proof code
+        }
+        start.setAttribute('disabled','');
+    })
+
+    stop.addEventListener('click',()=>{
+        clearInterval(colorChanger);
+        start.removeAttribute('disabled');
+        colorChanger = null; //to save memory of variable colorChanger;
+    })
+
+    console.log(randomColor());
+</script>
+</html>
