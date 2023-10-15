@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Timer</h1>
+    <h2 id="timer">00 : 00 : 00</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+</body>
+
+<script>
+    let millisecond = 0;
+    let second = 0;
+    let minute = 0;
+    let timer;
+
+    const timerDisplay = document.querySelector('#timer');
+    const start = document.querySelector('#start');
+    const pause = document.querySelector('#stop');
+    const reset = document.querySelector('#reset');
+    
+    function setTimer(){
+        second = Math.floor(millisecond/100);
+        minute = Math.floor(second / 60);
+    }
+
+    function displayCount(){
+        const displayMilSecMin= `${millisecond%100<10 ? '0' : ''}${millisecond%100}`;
+        const displaySec = `${second%60<10 ? '0' : ''}${second%60}`;
+        const displayMin =  `${minute%60<10 ? '0' : ''}${minute%60}`;
+        timerDisplay.innerHTML = `${displayMin} : ${displaySec} : ${displayMilSecMin}`;
+    }
+
+    function startWatch(){
+        timer = setInterval(()=>{
+            millisecond += 1;
+            setTimer();
+            displayCount();
+        },10)
+        start.setAttribute('disabled','');
+        pause.removeAttribute('disabled');
+
+        console.log(118%60);
+    }
+
+    function pauseWatch(){
+        clearInterval(timer);
+        pause.setAttribute('disabled','');
+        start.removeAttribute('disabled');
+    }
+
+    function resetWatch(){
+        clearInterval(timer);
+        millisecond = 0;
+        second = 0;
+        minute = 0;
+        displayCount();
+        start.removeAttribute('disabled');
+        pause.removeAttribute('disabled');
+
+    }
+
+    start.addEventListener('click',startWatch);
+    pause.addEventListener('click', pauseWatch);
+    reset.addEventListener('click', resetWatch);
+
+</script>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi Atharv, This is web</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    document.querySelector('h1');
+    const changeText = setTimeout(() => {
+        document.querySelector('h1').innerText = "Hey Gayatri, This is not web"       
+    }, 4000);
+
+    document.querySelector('#stop').addEventListener('click', () => {
+        clearTimeout(changeText);
+        document.querySelector('#stop').innerHTML = 'Start';
+    })
+</script>
+
+</html>
