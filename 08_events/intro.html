@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div id="div" style="width: 50vw; background-color: grey;">
+        <ul id="images" style="width: 300px; background-color: white">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // Javascript is sequencially running langueg it runs in sequence however there are some exceptions of async javascript.
+    // events are the same this is sort of async as it doesn't run as we wrote script it runs when sum activity happens in browser.
+    
+    // aproaches to use events
+    document.getElementById('river').onclick = () => {
+        // alert("ganga");
+    } // not that good aproadch
+    // best and the aproach which gives more functionality.
+    document.getElementById('prayer').addEventListener('click',(e) => {
+        // alert('Om Namah Shivay'); 
+    },false); // here false is a default parameter so no need to write however there are some use cases in propogation or bubling
+    // attachEvent() // used to use for internet explorer
+    // jQuery - . on was there. 
+
+    // evern object which is e. 
+    // learn more about these 
+    // learn more about below evernts
+    // type, timestamp, defaultPrevented 
+    // target , toElement, srcElement, currentTarget
+    // client X, client X, screen X, Screen Y
+    // altkey, ctrlkey, shiftKey, keyCode,
+
+    // ++++++++++++++++++ let's learn about event propogation +++++++++++++++ imp +++++++++++++++++++++
+
+    document.getElementById('owl').addEventListener('click',(e) => { // capturing one item in list
+        // console.log('clicked Owl');
+        // e.stopPropagation() // stops bubling effect
+    }, false);  
+
+    document.getElementById('images').addEventListener('click',(e) => { // here we have taken ul the whole list
+        // console.log(' clicked item in Ul');
+        // e.stopPropagation();
+    }, false)// writing true or false is nothing to do with the properties of the event but the behaviors
+
+    document.getElementById('div').addEventListener('click',(e) => { // capturing the whole div
+        // console.log('clicked div');
+    }, false); 
+
+    // now in above example we need to see which one print first when we click only item which is own
+    /* Output :
+    clicked Owl
+    clicked item in Ul
+    clicked div
+    */
+   // this is called bubling just like bubble it executes from inside to outside. also event propogation
+
+   // ++++++++++++++++ capturing mode +++++++++++ imp +++++++++++++++++++
+    // giving true in third arguement makes that element's event to work first rather than going in a bubling approach
+    // below are few examples referring above examples
+    /*
+    1, false true false // UL -> owl -> div
+    2. true true false // UL -> owl -> div // this is a question
+    3. true true true // reverse order div -> UL -> owl  // means if 2 or more that 2 are true in that case parrent element event get's execute first
+    4. false false true // div -> owl -> UL
+
+    // false goes from inside to outside
+    // true works from out side to inside sort of 
+    */
+
+    // ++++++++++++ To Stop bubbling like eg. clicking owl should not trigger parrent element's event 
+    // use e.stopPropogation();
+
+    // ++++++++ stop default actions +++++++++
+    // e.preventDefault();
+    document.getElementById('google').addEventListener('click', (e) => {
+        e.preventDefault();
+    })
+
+    // small project -  removing items in li when clicked
+
+    document.getElementById('images').addEventListener('click',(e) => {
+        // console.log(e.target); // target method get that perticular element on which we click
+        // let itemToRemove = e.target.parentNode;
+        // itemToRemove.remove();
+
+        // now above code is removing every parent thing for that we can check in conditions
+
+        if(e.target.tagName == 'IMG'){
+            let itemToRemove = e.target.parentNode;
+            itemToRemove.remove();
+        }
+    })
+
+</script>
+</html>
