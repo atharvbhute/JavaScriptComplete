@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning API requests</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Learn more in documentation</h1>    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">Learn XMLHttpRequest</a></p>
+
+    <p>XMLHttpRequest
+        XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.</p>
+
+    <!-- <h2>Demo get API App</h2>   
+
+    <form action="">
+        <input type="text" name="" id="url" placeholder="Enter url to parse" value="https://api.github.com/users/atharvbhute">
+        <button type="submit">submit</button>
+    </form>
+    <p id="data"></p> -->
+
+    <button id="getData">get random user</button>
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" disabled class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+</body>
+
+<script>
+
+    document.getElementById("getData").addEventListener('click', function(e){
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://randomuser.me/api/');
+        xhr.onload = function(){
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+            document.querySelector('.card-img-top').setAttribute('src',`${data.results[0].picture.large}`);
+            document.querySelector('.card-title').innerHTML = `${data.results[0].name.first} ${data.results[0].name.last}`;
+            document.querySelector('.card-text').innerHTML = `${data.results[0].gender} | ${data.results[0].dob.age}`;
+
+        }
+        xhr.send();
+
+        console.log(data.results[0].results);
+    })
+
+    // failed attept repair in future
+
+    // document.querySelector('form').addEventListener('click',function(e){
+    //     // e.preventDefault();
+    //     let URL = document.getElementById('url').value;
+
+    //     console.log(URL);
+        
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open("GET", URL);
+    //     let data = JSON.parse(this.responseText);
+    //     console.log(data);
+    //     xhr.onreadystatechange = function(){
+    //         // console.log(xhr.readyState);
+    //         console.log(this.responseText);
+    //     }
+    //     xhr.send();
+    //     document.getElementById('data').innerHTML = data
+    // });
+
+    // const URL = 'https://api.github.com/users/atharvbhute';
+    // const XHR = new XMLHttpRequest();
+    // XHR.open('GET', URL);
+    // // XHR.onreadystatechange = function() {
+    // //     console.log(XHR.readyState);
+    // //     if(XHR.readyState == 4){
+    // //         console.log(this.responseText);
+    // //     }
+    // // }
+    // XHR.onload = function(){ // arrow function doesn't work here as Arrow functions don't have their own bindings to this, arguments, or super, and should not be used as methods.
+    //     const rawData = this.responseText;  // the data comes in string
+    //     const data = JSON.parse(rawData)
+    //     console.log(data.created_at); // 
+    // }
+    // XHR.send(); // sends the request to the server.
+</script>
+</html>
