@@ -121,7 +121,7 @@ function fetchData(data){
             if (respnseText == data) {
                 resolve(respnseText)  
             } else {
-                reject(respnseText);            
+                reject(respnseText);
             }            
         }, 1000);
     })
