@@ -23,3 +23,6 @@ do {
     console.log(ido);
     ido++;
 } while (ido < 3);
+
+// there is pre increment and post increment
+// i++ is returning i first then increment it but ++i is increment value first and then returns
