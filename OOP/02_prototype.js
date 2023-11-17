@@ -55,5 +55,104 @@ the newly created object is returned.
 
 //+++++++++++++++++++++++++ Inheritance and adding own properties or methods to Objects/strings and arrays.+++++++++++
 
+// inhertiance 
+
+const user = {
+    username : "Atharv",
+    password: "*******"
+}
+
+const profile = {
+    Email : "atharv@gmail.com",
+    avatar : "asdfad.jpg",
+    // __proto__: user // by doing this you can use properties of user in profile
+}
+
+// profile.__proto__ = user; // setting proto outside of an Object 
+
+console.log(profile.username);
+
+// another way of using inheritance in modern way
+
+Object.setPrototypeOf(user, profile); // (Inheritance, Main object);
+
+console.log(user.Email);
+
+// Adding out own property to inbuild object
+// string, Array, functions are objects at the end it goes throught object and object goes to null
+// string/ Array/ Function -> Object -> null 
+
+const table = {
+    color : "brown",
+    shape : "round"
+}
+
+Object.prototype.printColor = function(){
+    console.log(`color of the table is ${this.color}`); // this is like whoever call this method it will response to that context
+}
+
+Object.prototype.sayHello  = function() {
+    console.log(`Hello ${this}`);    
+}
+
+table.printColor() // now table doesn't have printColor() method.
+const mahArray = [1,2,3,"Atharv"];
+
+mahArray.sayHello(); // Hello 1,2,3,Atharv // Now say Hello property was added to Object however it was 
+// we can use this in array as well as mentioned earlier string, function, arrays goes from Object only
+// however if we add property or method in array/function/string // we can't use that in object
+
+
+//++++ making own string function ++++++++++
+
+String.prototype.getRealLenght = function(){
+    let strLen = 0;
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] != " ") {
+            strLen++;            
+        }      
+    } // without using trim().lenght
+    return strLen;
+}
+
+console.log("Atharv    ".getRealLenght()); 
+
+//+++++++++ playing more with prototype +++++++++++++++++++++
+
+function createUser(username, password) {
+    this.username = username;
+    this.password = password;
+
+    this.credentials = {
+        userID : this.username,
+        pass : this.password
+    }
+    
+    // return this.credentials;
+}
+
+createUser.prototype.getCredential = function(){
+        // const userValues = this.credentials
+        return this;
+}
+
+createUser.prototype.deleteUSer = function(){
+    console.log(this.username);
+    return this;
+}
+
+const newUser = new createUser("Atharv", "Bhute");
+
+newUser.getCredential().deleteUSer();
+
+newUser.deleteUSer().getCredential();
+
+// here I am just playing with prototype and it's amazing but somehow I am only able to return this but now spacific value :(
+
+
+
+
+
+
 
 
