@@ -50,7 +50,7 @@ Documentation which browser reads to impliment fetch https://fetch.spec.whatwg.o
 
 //++++++++++++++++++++++++++ Core execution of fetch ++++++++++++++++++++++++++
 /*
-response = fetch('something') -> 1. first task goes to reserver memory in system 
+response = fetch('something') -> 1. first task goes to reserve memory in system 
                                     data -> onfulfilled[fn(to give results to data)], onReject[fn(to give results to Data)]
                                     and eventually data goes to globle memory in response
                                     *** Data, onfulfilled, onReject is not available to us as these are the private variable                          
