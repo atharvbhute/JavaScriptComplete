@@ -117,6 +117,24 @@ String.prototype.getRealLenght = function(){
 
 console.log("Atharv    ".getRealLenght()); 
 
+//++++++++++++ shadowing ++++++++++++
+// what if our own method already exist in object as buildin 
+
+const name = "Atharv";
+String.prototype.length = function(){
+    let strLen = 0;
+    for (let i = 0; i < Infinity; i++) {
+        if (this[i]) {
+            strLen++;
+        }else{
+            break;
+        }
+    }
+    console.log(strLen);
+}
+
+
+
 //+++++++++ playing more with prototype +++++++++++++++++++++
 
 function createUser(username, password) {
@@ -137,7 +155,7 @@ createUser.prototype.getCredential = function(){
 }
 
 createUser.prototype.deleteUSer = function(){
-    console.log(this.username);
+    // console.log(this.username);
     return this;
 }
 
@@ -147,6 +165,7 @@ newUser.getCredential().deleteUSer();
 
 newUser.deleteUSer().getCredential();
 
+// this is good for passing values or filter in any order through chaninng 
 // here I am just playing with prototype and it's amazing but somehow I am only able to return this but now spacific value :(
 
 
