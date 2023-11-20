@@ -27,8 +27,37 @@ function Animal(name) {
   };
   
   var myDog = new Dog("Buddy", "Labrador");
+
   myDog.sayHello(); // Outputs: Hello, I'm Buddy
   myDog.bark(); // Outputs: Woof!
+
+  // another example of inherit - for understanding
+
+  function createUser(username, password){
+    this.username = username;
+    this.password = password;
+  }
+
+  createUser.prototype.saveToData = function(){
+    console.log(`${this.username}, ${this.password}`);
+  }
+
+  function createTeacher(username, password, role){
+    createUser.call(this,username,password);
+    this.role = role;
+  }
+
+  createTeacher.prototype = Object.create(createUser.prototype); // this way you add method from createUser to createTeacher
+
+  createTeacher.prototype.yellRoll = function(){
+    console.log(`I am a ${this.role}`);    
+  } // this property is only for teacher 
+
+  const teacherOne = new createTeacher("atharv","pass","teacher");
+  teacherOne.saveToData(); 
+  teacherOne.yellRoll();
+
+
 
 
   // ++++++++++++++++++++++++++++++++++ Method Sharing ++++++++++++++++++++++++++++++++++++ 
