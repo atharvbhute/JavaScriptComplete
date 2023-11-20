@@ -70,6 +70,7 @@ const profile = {
     Email : "atharv@gmail.com",
     avatar : "asdfad.jpg",
     // __proto__: user // by doing this you can use properties of user in profile
+    // this is to setting inheritance in Object for classes it's call or .prototype
 }
 
 // profile.__proto__ = user; // setting proto outside of an Object 
@@ -79,6 +80,7 @@ console.log(profile.username);
 // another way of using inheritance in modern way
 
 Object.setPrototypeOf(user, profile); // (Inheritance, Main object);
+//this is to setting inheritance in Object for classes it's call or .prototype
 
 console.log(user.Email);
 
