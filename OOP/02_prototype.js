@@ -26,13 +26,17 @@ addThree.prototype.printNum = function (){
     console.log(this.num+3);
 } // now here using prototype we are adding a new function to addThree
 // to access this we don't need to write prototype again
+console.log(addThree.prototype);
 
 
 new addThree(8).printNum(); // without new keyword added function with prototype won't work basically it is added but
 // new keyword attaches that function to another function 
 
+
 const tenPlusThree = new addThree(10);
 tenPlusThree.printNum();
+
+console.log(addThree.prototype);
 
 /*
 

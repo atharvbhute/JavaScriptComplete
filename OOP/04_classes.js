@@ -34,6 +34,9 @@ class createTaskList{
         this.task = task;
         this.id = id;
     }
-
-    
 }
+ class updateTask extends createTaskList{
+    constructor(task, id){
+        
+    }
+ }
