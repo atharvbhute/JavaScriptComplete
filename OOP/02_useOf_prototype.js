@@ -54,10 +54,8 @@ function Animal(name) {
   } // this property is only for teacher 
 
   const teacherOne = new createTeacher("atharv","pass","teacher");
-  teacherOne.saveToData(); 
-  teacherOne.yellRoll();
-
-
+  teacherOne.saveToData(); // atharv, pass
+  teacherOne.yellRoll(); // I am a teacher
 
 
   // ++++++++++++++++++++++++++++++++++ Method Sharing ++++++++++++++++++++++++++++++++++++ 
