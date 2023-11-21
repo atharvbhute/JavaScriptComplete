@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <h3>React</h3>
+    <button>click Me</button>    
+</body>
+<script>
+    class Componenet{
+        constructor(){
+            this.compName = "button"
+            this.server = "10.1.16.17"
+
+            this.printVAlues(); // this will work this won't need call or bind
+
+            /* but query selector or addEventListener are outer functions these 
+               are Dom function that is why we need to bind the context */
+            document.querySelector("button")
+                .addEventListener('click',this.printVAlues.bind(this))
+                // without bind it's undefined 
+                // with bound it gives values
+        }
+
+        printVAlues(){
+            console.log(this.compName);
+            console.log(this.server);
+        }        
+    }
+    const comp = new Componenet();
+
+
+/*
+    Execution Time:
+
+1.  call: Invokes the function immediately with the specified this context and arguments.
+    bind: Returns a new function with the specified this context, but it doesn't invoke the function immediately. Instead, it creates a new function that can be invoked later.
+    Return Value:
+
+2.   call: Executes the function and returns the result if the function has a return statement.
+    bind: Returns a new function with the bound context. It doesn't execute the original function immediately.
+    */
+</script>
+</html>

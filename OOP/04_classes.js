@@ -75,6 +75,6 @@ class createTaskList{
 
  const newBeer = new makeBeer("weet");
 
-newBeer.brewer();
+newBeer.hideMe(); 
 
  
