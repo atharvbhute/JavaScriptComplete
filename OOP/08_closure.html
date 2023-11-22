@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+        <input type="text">
+        <button>change color</button>
+</body>
+<script>
+
+    const color = document.querySelector("input") // can't give .value here itself as it returns empty string
+    // it get's value at the time of clicking button initially value is set to empty sting inside const color.
+
+    document.querySelector("button").addEventListener('click',changeColor(color));
+
+    function changeColor(bgColor) {
+        return function(){
+            console.log(typeof color.value);
+            document.querySelector("body").style.backgroundColor = color.value;              
+        }
+    }
+</script>
+</html>
